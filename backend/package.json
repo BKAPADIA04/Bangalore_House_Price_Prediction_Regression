@@ -4,8 +4,17 @@
   "description": "Backend to deploy the linear regression model",
   "main": "index.js",
   "scripts": {
+    "run": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bhavya Kapadia",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.3"
+  }
 }
