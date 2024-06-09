@@ -1,0 +1,11 @@
+{
+  "name": "blr_price_prediction",
+  "version": "1.0.0",
+  "description": "Backend to deploy the linear regression model",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bhavya Kapadia",
+  "license": "ISC"
+}
