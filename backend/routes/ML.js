@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const mlRouter= express.Router();
 
 const { body } = require('express-validator');
@@ -8,8 +9,25 @@ mlRouter.get('/', (req, res) => {
 })
 
 mlRouter.post('/prediction',(req,res) => {
-    const { data } = req.body;
-    predict(data).then(response => {
+    const { location , sqft , bhk , bath } = req.body;
+    let myList = new Array(242).fill(0);
+    // console.log(myList);
+    myList[0] = sqft
+    myList[1] = bath
+    myList[2] = bhk
+
+    try {   
+        const jsonData = JSON.parse(myList);
+        const keyToFind = location;
+        if (jsonData.hasOwnProperty(keyToFind)) {
+            const value = jsonData[keyToFind];
+            myList[value] = 1;
+        } 
+    } catch (error) {
+        console.error('Error parsing JSON:', error);
+    }
+    // console.log(myList);
+    predict(myList).then(response => {
         console.log('Prediction response:', response);
         res.send({'prediction': response.prediction});
     }).catch(error => {
