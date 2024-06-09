@@ -24,6 +24,7 @@ feature_names = X.columns
 def predict_price(location,sqft,bhk,bath):
     try:
         index_location = np.where(X.columns == location)[0][0]
+        print(index_location)
     except IndexError:
         raise ValueError(f"Location '{location}' not found in the dataset")
     
