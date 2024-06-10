@@ -1,8 +1,12 @@
+import React from 'react';
 import './App.css';
+import Home from './components/Home';
 
 function App() {
   return (
-    <h1>Bhavya Kapadia</h1>
+    <div className='app'>
+      <Home/>
+    </div>
   );
 }
 
