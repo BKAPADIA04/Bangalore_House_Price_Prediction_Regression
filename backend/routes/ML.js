@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const mlRouter= express.Router();
 
 const { body } = require('express-validator');
@@ -16,23 +17,36 @@ mlRouter.post('/prediction',(req,res) => {
     myList[1] = bath
     myList[2] = bhk
 
-    try {   
-        const jsonData = JSON.parse(myList);
-        const keyToFind = location;
-        if (jsonData.hasOwnProperty(keyToFind)) {
-            const value = jsonData[keyToFind];
-            myList[value] = 1;
-        } 
-    } catch (error) {
-        console.error('Error parsing JSON:', error);
-    }
-    // console.log(myList);
-    predict(myList).then(response => {
-        console.log('Prediction response:', response);
-        res.send({'prediction': response.prediction});
-    }).catch(error => {
-        console.error('Error during prediction:', error);
-        res.send({'error':error});
+    const filePath = path.resolve(__dirname, '../json/location_data.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return;
+        }
+    
+        try {
+            // Parse the JSON data
+            const jsonData = JSON.parse(data);
+    
+            // Check if the key exists and return its value
+            const keyToFind = location;
+            if (jsonData.hasOwnProperty(keyToFind)) {
+                const value = jsonData[keyToFind];
+                myList[value] = 1;    
+                predict(myList).then(response => {
+                    console.log('Prediction response:', response);
+                    res.send({'prediction': response.prediction});
+                }).catch(error => {
+                    console.error('Error during prediction:', error);
+                    res.send({'error':error});
+                });
+            } else {
+                console.log(`${keyToFind} not found.`);
+                res.send({'error':"Enter A Valid Location !"})
+            }
+        } catch (error) {
+            console.error('Error parsing JSON:', error);
+        }
     });
 })
 
@@ -50,11 +64,3 @@ async function predict(inputData) {
         throw error;
     }
 }
-
-// const inputData = [15000, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-
-// predict(inputData).then(response => {
-//     console.log('Prediction response:', response);
-// }).catch(error => {
-//     console.error('Error during prediction:', error);
-// });
