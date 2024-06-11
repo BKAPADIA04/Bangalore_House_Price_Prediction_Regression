@@ -30,3 +30,93 @@
     /* Add any additional text styles here */
   }
   
+  .upper-container-right {
+    position:absolute;
+    width: 25vw; /* Set the width of the container */
+    height: 50vh; /* Set the height of the container to make it square */
+    top: 20vh;
+    background: linear-gradient(135deg, #BF7449, #b4b2b2);
+    z-index: 0;
+    opacity: 0.8;
+    border: 3px solid black;
+    border-radius: 10px;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+  .lower-container-right {
+    position:absolute;
+    width: 25vw; /* Set the width of the container */
+    height: 10vh; /* Set the height of the container to make it square */
+    background-color: transparent; /* Example background color */
+    bottom: 13vh;
+    z-index: 0;
+    opacity: 0.8;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+
+  .right-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+    /* position:absolute; */
+    /* z-index: 100; */
+  }
+
+  .button {
+    width: 15vw;
+    padding: 15px 22px;
+    font-size: 20px;
+    font-family: Arial, sans-serif;;
+    border: none;
+    background-color: #d46e25;
+    color: black;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.2vw;
+  }
+  .button:hover {
+    background-color: #9d511a;
+  }
+
+  .prediction-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: rgb(35, 35, 35); /* Dark gray color */
+    margin-bottom: 5px; /* Add some space below the text */
+  }
+  
+  .price-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: black; /* Blue color */
+  }
+  .lower-inner-container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Align children to the center horizontally */
+    align-items: center;
+  }
+  
+  .currency {
+  position: absolute;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+  left: calc(50% - 160px); /* Center horizontally */
+  }
+  
+  .value {
+  position: absolute;
+  font-size: 45px;
+  font-weight: bold;
+  color: black;
+  left: calc(50% - 100px); /* Center horizontally */
+  }
+  

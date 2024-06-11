@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React from 'react'
 import '../css/locationSelector.css';
 
-function LocationSelector() {
-    const [selectedLocation, setSelectedLocation] = useState('');
+function LocationSelector(props) {
+    // const [selectedLocation, setSelectedLocation] = useState('');
 
 
     const locations = [
@@ -247,21 +247,35 @@ function LocationSelector() {
     ];
 
     const handleLocationChange = (event) => {
-        setSelectedLocation(event.target.value);
-        console.log(selectedLocation);
+        props.setSelectedLocation(event.target.value);
+        // console.log(selectedLocation);
     };
 
   return (
     <div className="lower-container">
-        <h2 style={{'color':'rgb(0, 0, 0)'}}>Select Location</h2>
-        <div className="d-flex justify-content-center">
-            <div className="w-50 p-1 rounded1"><select className="form-select custom-select" onChange={handleLocationChange} value={selectedLocation}> 
-                <option value="">Please choose a location</option>
-                {locations.map((option,index) => (
-                    <option key = {index} value = {option}> {option} </option>
-                ))}
-                </select>
-            </div>
+        {/*<h2 style={{'color':'rgb(0, 0, 0)'}}>Select Location</h2>*/}
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            SELECT LOCATION
+          </label>
+          <input
+            type="text"
+            name="tag"
+            className="form-control"
+            id="exampleInputPassword1"
+            onChange={handleLocationChange}
+            autoComplete="off"
+            minLength={3}
+            required
+            list="suggestions"
+            placeholder='Enter The Location'
+          ></input>
+          <datalist id="suggestions">
+          <option value="">Please choose a location</option>
+          {locations.map((option,index) => (
+              <option key = {index} value = {option}> {option} </option>
+          ))}
+        </datalist>
         </div>
         </div>
   )
