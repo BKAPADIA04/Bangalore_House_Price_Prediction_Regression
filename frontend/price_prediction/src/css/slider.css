@@ -1,0 +1,71 @@
+    .horizontal-slider {
+        width: 100%;
+        max-width: 500px;
+        height: 5vh;
+        margin: auto;
+        padding: 5px 0;
+    }
+
+    .example-thumb {
+        cursor: pointer;
+        position: absolute;
+        z-index: 100;
+        background: #ffffff;
+        border: 5px solid #a0512d00;
+        border-radius: 100%;
+        display: block;
+        box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .example-thumb1 {
+        cursor: pointer;
+        position: absolute;
+        z-index: 100;
+        background: #ffffff;
+        border: 5px solid #a0512d00;
+        border-radius: 100%;
+        display: block;
+        width: 2.5vw;
+        box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .example-thumb.active {
+        background-color: #e8f625c2;
+        transform: scale(1.2);
+    }
+    .example-thumb1.active {
+        background-color: #e8f625c2;
+        transform: scale(1.2);
+    }
+    .example-track {
+        position: relative;
+        background: #ddd;
+        border-radius: 2px;
+    }
+
+    .example-track.example-track-0 {
+        background: linear-gradient(to right, #DEB887, rgb(160, 82, 45));
+    }
+    .horizontal-slider .example-track {
+        top: 20px;
+        height: 4px;
+    }
+
+    .horizontal-slider .example-thumb {
+        /* top: 12px; */
+        /* width: 10px; */
+        outline: none;
+        /* height: 10px; */
+        /* line-height: 38px; */
+    }
+
+    .slider-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #8B4513; 
+        font-size: 1.2em; 
+        font-family: Arial, sans-serif; 
+        z-index: 50; 
+    }
