@@ -120,3 +120,7 @@
   left: calc(50% - 100px); /* Center horizontally */
   }
   
+  .button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
