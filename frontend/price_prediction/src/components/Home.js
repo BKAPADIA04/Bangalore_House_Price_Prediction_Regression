@@ -53,7 +53,7 @@ function Home() {
   return (
     <div className="square-container container my-2 p-3 border rounded shadow-lg d-flex flex-column align-items-center justify-content-center">
         <div className="flex-container d-flex flex-wrap justify-content-center">
-            <div className="sub-container p-3 border rounded mb-3">
+            <div className="sub-container p-3 rounded mb-3">
                 <div className="container mt-2 mb-3">
                     <h5 className="text-center custom-text">Get Ahead In The Property Market With Our Smart Forecasting Solution!</h5>
                 </div>
@@ -62,7 +62,7 @@ function Home() {
                 <SliderStep name = {"BATH"} min = {1} max = {10} step = {1} sliderValue = {bathValue} setSliderValue = {setBathValue}/>
                 <LocationSelector selectedLocation = {selectedLocation} setSelectedLocation = {setSelectedLocation}/>
             </div>
-            <div className="sub-container p-3 border rounded mb-3 right-container">
+            <div className="sub-container p-3 rounded mb-3 right-container">
               <div className="upper-container-right p-3 m-3">
                 <div className="upper-inner-container prediction-text p-5">
                   <h1 style={{'text-align': 'center'}}>House Price Prediction :</h1>
