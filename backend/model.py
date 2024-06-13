@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify
 import joblib,json
 
 app = Flask(__name__)
-lr = joblib.load('../final/codes/hp_model.joblib')
+# lr = joblib.load('../final/codes/hp_model.joblib')
+lr = joblib.load('./hp_model.joblib')
 
 @app.route('/',methods = ['GET'])
 def index():
