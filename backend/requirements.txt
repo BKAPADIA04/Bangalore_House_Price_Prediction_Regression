@@ -53,3 +53,4 @@ SQLAlchemy==2.0.25
 srsly==2.4.8
 stack-data==0.6.3
 statsmodels==0.14.2
+gunicorn==19.7.1
