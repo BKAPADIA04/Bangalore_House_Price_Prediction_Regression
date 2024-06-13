@@ -22,7 +22,8 @@ function Home() {
 
   const [show,setShow] = useState(false);
 
-  const host = "http://localhost:8080/";
+  // const host = "http://localhost:8080/";
+  const host = "https://bangalore-house-price-prediction-wyvt.onrender.com/"
   const handleSubmitAPI = async(event) => {
     event.preventDefault();
     const url = `${host}api/prediction`;
