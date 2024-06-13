@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib,json
 
 app = Flask(__name__)
+CORS(app)
 # lr = joblib.load('../final/codes/hp_model.joblib')
 lr = joblib.load('./hp_model.joblib')
 
