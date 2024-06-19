@@ -8,6 +8,8 @@
 
 Our goal is to offer a reliable tool for buyers, sellers, and investors, ensuring transparent and fair pricing in Bangalore's dynamic real estate market.
 
+# To set up the project : git clone https://github.com/BKAPADIA04/PricePerch.git
+
 # To set up and run the frontend of the PricePerch project, follow these steps:
 
 - Install Dependencies:
@@ -23,7 +25,7 @@ Our goal is to offer a reliable tool for buyers, sellers, and investors, ensurin
 - This will launch the frontend application, and you can view it in your browser, typically at http://localhost:3000.
 
 
-# To set up and run the flask API backend server of the PricePerch project, follow these steps:
+# To set up and run the Flask API backend server of the PricePerch project, follow these steps:
 
 - Navigate to the directory containing your requirements.txt file.(Here /backend)
 # pip3 install -r requirements.txt
